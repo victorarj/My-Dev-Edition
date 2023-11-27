@@ -63,11 +63,16 @@
 .library {
     margin-left: 2%;
     margin-top: 2%;
+    font-weight: 700;
 }
 
 .icon {
     margin-right: 2%;
     margin-top: 2%;
+}
+
+.button-element-clickable {
+    cursor: pointer;
 }
 
 .canvas-side {
@@ -150,9 +155,55 @@
 .setup-option {
     margin-left: 2%;
     margin-top: 2%;
+    font-weight: 600;
 }
 
 .arrow-right {
     margin-right: 2%;
     margin-top: 2%;
+}
+
+.bellow-side-container {
+    display: flex;
+    flex-direction: row;
+    background-color: deepskyblue;
+}
+
+.option-card-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 15%;
+}
+
+.option-card-upper {
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    height: 15%;
+    width: 200%;
+}
+
+.option-card-bottom {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 10%;
+    width: 200%;
+}
+
+.option-card-value {
+    font-size: smaller;
+}
+
+.option-card-name {
+    font-weight: 700;
+}
+
+.configure-button {
+    background-color: brown;
+    border: 2px solid #000; /* Black border */
+    cursor: pointer;
+    font-weight: 700;
 }

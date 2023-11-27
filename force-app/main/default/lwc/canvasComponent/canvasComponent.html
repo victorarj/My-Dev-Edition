@@ -20,12 +20,40 @@
         </div>
         <div class="header">
             <div class="bundle-side">
-                <div class="library">
-                    Catalog
-                </div>
-                <div class="icon">
-                    X
-                </div>
+                <template if:true={isLibraryTrue}>
+                    <div class="library" >
+                        Library
+                    </div>
+                    <div class="icon">
+                        <button class="button-element-clickable" onclick={goToCatalogSections}>+</button>
+                    </div>  
+                </template>
+                <template if:true={isCatalogTrue}>
+                    <div class="library">
+                        Catalog
+                    </div>
+                    <div class="icon">
+                        <button class="button-element-clickable" onclick={backToLibrary}>X</button>
+                    </div>
+                </template>
+                <template if:true={isBundlesTrue}>
+                    <div class="icon">
+                        <button class="button-element-clickable" onclick={backToCatalog}>Back</button>
+                    </div>
+                    <template if:true={isSelected}>
+                        <div class="library">
+                            {catalogName}
+                        </div>
+                    </template>
+                    <template if:false={isSelected}>
+                        <div class="library">
+                            Catalog
+                        </div>
+                    </template>
+                    <div class="icon">
+                        <button class="button-element-clickable" onclick={backToLibrary}>X</button>
+                    </div>
+                </template>
             </div>
             <div class="canvas-side">
                 <div class="add-button">
@@ -52,23 +80,85 @@
                 </div>
             </div>
         </div>
-        <div class="product-setup">
-            <div class="setup-type">
-                <div class="setup-option">
-                    Bundles
-                </div>
-                <div class="arrow-right">
-                    >
-                </div>
+        <div class="bellow-side-container">
+            <div class="product-setup">
+                <template if:true={isCatalogTrue}>
+                    <div class="setup-type">
+                        <div class="setup-option">
+                            Bundles
+                        </div>
+                        <div class="arrow-right">
+                            <button class="button-element-clickable" onclick={fetchBundles}>></button>
+                        </div>
+                    </div>
+                    <div class="setup-type">
+                        <div class="setup-option">
+                            A La Carte
+                        </div>
+                        <div class="arrow-right">
+                            >
+                        </div>
+                    </div>
+                </template>
+                <template if:true={isBundlesTrue}>
+                    <template if:true={isProductsTrue}>
+                        <template for:each={products} for:item="product">
+                            <div key={product.productId}>
+                                <div class="setup-type">
+                                    <div class="setup-option">
+                                        {product.productName}
+                                    </div>
+                                    <div class="arrow-right">
+                                        <button class="button-element-clickable" data-id={product.productId} onclick={fetchProductOptions}>></button>
+                                    </div>
+                                </div>
+                                <!-- <template for:each={product.productOptions} for:item="option">
+                                    <p key={option.optionId}>{option.optionName}</p>
+                                </template> -->
+                            </div>
+                        </template>
+                    </template>
+                    <template if:true={isOptionsTrue}>
+                        <template for:each={productOptions} for:item="options">
+                            <div key={options.optionId}>
+                                <div class="setup-type">
+                                    <div class="setup-option">
+                                        {options.optionName}
+                                    </div>
+                                    <div class="arrow-right">
+                                        <button class="button-element-clickable" data-id={options.optionId} onclick={selectProductOption}>
+                                            <template if:true={isOptionsSelected}>
+                                                Selected
+                                            </template>
+                                            <template if:false={isOptionsSelected}>
+                                                Select
+                                            </template>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </template>
             </div>
-            <div class="setup-type">
-                <div class="setup-option">
-                    A La Carte
+            <template if:true={isOptionsSelected}>
+                <div class="option-card-container">
+                    <div class="option-card-upper">
+                        Buttons
+                    </div>
+                    <div class="option-card-bottom">
+                        <div class="option-card-value">
+                            From: $XX.XXXX
+                        </div>
+                        <div class="option-card-name">
+                            {optionName}
+                        </div>
+                        <div>
+                            <button class="configure-button" onclick={configureOption}>Configure</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="arrow-right">
-                    >
-                </div>
-            </div>
+            </template>
         </div>
     </div>
 </template>

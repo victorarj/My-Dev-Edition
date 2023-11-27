@@ -1,4 +1,20 @@
 .custom-button {
     background-color: yellow;
-    color: black;
+    border: 2px solid #000; /* Black border */
+    width: 8%;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.header-style {
+    margin-top: -.5%;
+}
+
+.opp-style {
+    font-size: 10px;
+}
+
+.opp-name-style {
+    font-size: 20px;
+    font-weight: 700;
 }
