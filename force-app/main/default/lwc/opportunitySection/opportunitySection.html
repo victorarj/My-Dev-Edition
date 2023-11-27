@@ -1,0 +1,52 @@
+<template>
+    <c-spinner show-spinner={showSpinner}></c-spinner>
+    <lightning-card icon-name="standard:opportunity" variant="narrow">
+        <h1 slot="title">Opportunities</h1>
+        <lightning-accordion allow-multiple-sections-open class="slds-p-around_medium">
+            <template for:each={displayedRecords} for:item="opp">
+                <lightning-accordion-section onsectiontoggle={handleSectionToggle} key={opp.Id} name={opp.Id} label={opp.Name} class="slds-box slds-box_xx-small">
+                    <div class="background-color">
+                        <div class="slds-grid slds-gutters slds-p-around_medium">
+                            <div class="slds-col">
+                                    <p>Amount: &nbsp;
+                                    <lightning-helptext content="Here's a help text."></lightning-helptext></p>
+                                    <p>{opp.Amount}</p> 
+                                        <br><br>
+                                    <p>Description:  <br>
+                                    <!-- <p>{opp.Description}</p> -->
+                                <lightning-input class="input-width" type="text" value={opp.Description} data-opp-id={opp.Id} onchange={handleAmountChange}></lightning-input></p>
+                            </div>
+                            <div class="slds-col">
+                                <p>Close Date: </p> 
+                                <p>{opp.CloseDate}</p>
+                            </div>
+                        </div> <br>
+                        <div if:true={showButton} class="slds-align_absolute-center">
+                            <lightning-button label="Save" variant="brand" onclick={handleSave} data-opportunity-id={opp.Id}></lightning-button>
+                        </div> 
+                        <div class="slds-p-around_medium slds-button-group" role="group">
+                            <lightning-button label="Edit" onclick={editOpportunity} data-opportunity-id={opp.Id}></lightning-button>
+                            <lightning-button label="See Products" onclick={openModal} variant="brand" data-opportunity-id={opp.Id}></lightning-button>
+                            <c-modal-container if:true={isModalOpen} title="Related Products" onclosemodal={closeModal} opp-id={oppId}></c-modal-container>
+                        </div>
+                    </div>
+                    <div class="slds-m-around_medium slds-box">
+                        <c-opportunity-case opp-id={oppId}></c-opportunity-case>            
+                    </div>
+                </lightning-accordion-section>
+            </template>
+            <div>
+                <button class="slds-button" onclick={previousPage} disabled={isFirstPage}>Previous</button>
+                <button class="slds-button" onclick={nextPage} disabled={isLastPage}>Next</button>
+            </div>
+        </lightning-accordion>
+        <div slot="actions" class="slds-button-group" role="group">
+            <lightning-button label="Clear Filters" onclick={clearFilters} disabled={isDisabled}></lightning-button>
+            <lightning-button label="Filter" onclick={openFilterRecord}></lightning-button>
+            <template if:true={isFilterOpen}>
+                <c-filter-component onclose={closeFilterRecord} filter-field={filterField} comparison-operator={comparisonOperator} filter-value={filterValue} field-type={fieldType} onfilterevent={handleFilter}></c-filter-component>
+            </template>
+            <lightning-button label="New" onclick={createNewOpportunity} slot="actions" variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>
