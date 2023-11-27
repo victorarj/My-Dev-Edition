@@ -1,4 +1,4 @@
-public with sharing class accountService {
+public with sharing class AccountService {
 
     public Account createAccount( String accountName, String accountNumber, String tickerSymbol ) {
 
