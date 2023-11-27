@@ -1,0 +1,56 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-left_medium slds-p-right_medium">
+            <lightning-tabset>
+                <lightning-tab label="Details">
+                    <lightning-card class="slds-m-left_small">
+                        <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                            <div class="slds-box slds-box_small background-color">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <lightning-output-field field-name="Name"></lightning-output-field>
+                                        <lightning-output-field field-name="AccountNumber"></lightning-output-field>
+                                        <lightning-output-field field-name="DunsNumber"></lightning-output-field>
+                                        <lightning-output-field field-name="AnnualRevenue"></lightning-output-field>
+                                        <lightning-output-field field-name="NumberOfEmployees"></lightning-output-field>
+                                        <lightning-output-field field-name="Industry"></lightning-output-field>
+                                        <lightning-output-field field-name="Type"></lightning-output-field>
+                                        <lightning-output-field field-name="Phone"></lightning-output-field>
+                                        <lightning-output-field field-name="Fax"></lightning-output-field>
+                                        <lightning-output-field field-name="Website"></lightning-output-field>
+                                        <lightning-output-field field-name="BillingStreet"></lightning-output-field>
+                                        <lightning-output-field field-name="BillingCity"></lightning-output-field>
+                                        <lightning-output-field field-name="BillingState"></lightning-output-field>
+                                    </div>
+                                    <div class="slds-col">
+                                        <lightning-output-field field-name="BillingPostalCode"></lightning-output-field>
+                                        <lightning-output-field field-name="BillingCountry"></lightning-output-field>
+                                        <lightning-output-field field-name="ShippingStreet"></lightning-output-field>
+                                        <lightning-output-field field-name="ShippingCity"></lightning-output-field>
+                                        <lightning-output-field field-name="ShippingState"></lightning-output-field>
+                                        <lightning-output-field field-name="ShippingPostalCode"></lightning-output-field>
+                                        <lightning-output-field field-name="ShippingCountry"></lightning-output-field>
+                                        <lightning-output-field field-name="Description"></lightning-output-field>
+                                        <lightning-output-field field-name="OwnerId"></lightning-output-field>
+                                        <lightning-output-field field-name="ParentId"></lightning-output-field>
+                                        <lightning-output-field field-name="Created Date"></lightning-output-field>
+                                        <lightning-output-field field-name="LastModifiedDate"></lightning-output-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-record-view-form>
+                    </lightning-card>
+                </lightning-tab>
+        
+                <lightning-tab label="Related">
+                    <div class="slds-m-around_medium slds-box">
+                        <c-opportunity-section opportunities={opportunities} onsave={handleSave} show-spinner={showSpinner}></c-opportunity-section>
+                    </div>
+                    <div class="slds-m-around_medium slds-box">
+                        <c-opportunity-contacts record-id={recordId}></c-opportunity-contacts>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>
