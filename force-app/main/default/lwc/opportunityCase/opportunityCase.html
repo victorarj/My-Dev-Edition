@@ -1,0 +1,37 @@
+<template>
+    <lightning-card icon-name="standard:case" variant="narrow">
+        <h1 slot="title">Cases</h1>
+        <lightning-accordion allow-multiple-sections-open class="slds-p-around_medium">
+            <template for:each={displayedRecords} for:item="cases">
+                <lightning-accordion-section onsectiontoggle={handleSectionToggle} key={cases.Id} name={cases.Id} label={cases.CaseNumber} class="slds-box slds-box_xx-small">
+                    <div class="background-color">
+                        <div class="slds-grid slds-gutters slds-p-around_medium">
+                            <div class="slds-col">
+                                    <p>Case Number: &nbsp;
+                                    <lightning-helptext content="Here's a help text."></lightning-helptext></p>
+                                    <p>{cases.CaseNumber}</p> 
+                                    <br>
+                                    <p>Subject: </p> 
+                                    <p>{cases.Subject}</p>
+                                    <br>
+                                    <p>Status: </p> 
+                                    <p>{cases.Status}</p>
+                            </div>
+                            <div class="slds-col">
+                                <p>Owner: </p> 
+                                <p>{cases.OwnerId}</p>
+                                <br>
+                                <p>Description:  </p>
+                                <p>{cases.Description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-accordion-section>
+            </template>
+            <div>
+                <button class="slds-button" onclick={previousPage} disabled={isFirstPage}>Previous</button>
+                <button class="slds-button" onclick={nextPage} disabled={isLastPage}>Next</button>
+            </div>
+        </lightning-accordion>
+    </lightning-card>
+</template>

@@ -1,0 +1,158 @@
+.container { 
+    display: flex;
+    flex-direction: column;
+}
+
+.header-axon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    background-color: black;
+}
+
+.logo-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    color: white;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+.title {
+    color: white;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.photo-arrow {
+    display: flex;
+    flex-direction: row;
+}
+
+.photo {
+    color: white;
+    margin-left: -50%;
+    padding-top: 15%;
+}
+
+.arrow-photo {
+    color: white;
+    margin-left: 7%;
+    padding-top: 15%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-bottom: 1px solid #000;
+}
+
+.bundle-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-right: 1px solid #000;
+    width: 20%;
+}
+
+.library {
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.icon {
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.canvas-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.add-button {
+    width: 3%;
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.quote-number {
+    width: 8%;
+    font-size: 18px;
+    margin-top: .4%;
+    margin-left: -60%;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 25%;
+}
+
+.compare-button {
+    padding-top: 2%;
+    padding-left: 3%;
+    width: 20%;
+    background-color: yellow;
+}
+
+.summary-button {
+    padding-top: 2%;
+    padding-left: 3%;
+    width: 20%;
+    background-color: lightgray;
+}
+
+.subtotal-summary {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: saddlebrown;
+}
+
+.subtotal-title {
+    font-size: 9px;
+    color: white;
+    padding-left: 5%;
+}
+
+.subtotal-value {
+    color: white;
+    padding-left: 5%;
+    font-weight: 700;
+}
+
+.product-setup {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 20%;
+    height: 1000px;
+    border-right: 1px solid #000;
+}
+
+.setup-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2%;
+    margin-bottom: 2%
+}
+
+.setup-option {
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.arrow-right {
+    margin-right: 2%;
+    margin-top: 2%;
+}

@@ -1,0 +1,4 @@
+<!-- MyLWCTabWrapper.cmp -->
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
+    <c:canvasComponent></c:canvasComponent> <!-- Replace with the correct namespace and component name -->
+</aura:component>
